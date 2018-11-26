@@ -4,9 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/table1"
+
+
+    >
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="player1"
+            android:textSize="20sp"
+            android:id="@+id/player1"
+            android:layout_margin="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="player2"
+            android:textSize="20sp"
+            android:layout_margin="6dp"
+            android:id="@+id/player2"
+             />
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        a
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="6dp"
+            android:id="@+id/total_score_player1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="45dp"
+            android:id="@+id/total_score_player2"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -47,12 +111,23 @@
 
     <Button
         android:id="@+id/rollDices"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="roll the dice!"
-        app:layout_constraintRight_toRightOf="@+id/dice3"
-        app:layout_constraintTop_toBottomOf="@+id/dice3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice1"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="62dp"
+        />
+
+    <Button
+        android:id="@+id/pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASS"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rollDices"
+        android:layout_marginTop="10dp"
         />
 </android.support.constraint.ConstraintLayout>
