@@ -7,42 +7,52 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="16dp">
+        android:layout_centerHorizontal="true"
+        />
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/dice1" />
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/dice1"
+        android:id="@+id/dice1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/dice1" />
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/dice1"
+        android:id="@+id/dice2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="@id/dice1"/>
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/dice1" />
-
-    </LinearLayout>
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/dice2"
+        android:id="@+id/dice3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/dice1"
+        />
 
     <Button
         android:id="@+id/rollDices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Roll dices"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="127dp" />
-
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="roll the dice!"
+        app:layout_constraintRight_toRightOf="@+id/dice3"
+        app:layout_constraintTop_toBottomOf="@+id/dice3"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="62dp"
+        />
 </android.support.constraint.ConstraintLayout>

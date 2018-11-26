@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rollDices  = (Button) findViewById(R.id.rollDices);
-        imageView1 = (ImageView) findViewById(R.id.imageView1);
-        imageView2 = (ImageView) findViewById(R.id.imageView2);
-        imageView3 = (ImageView) findViewById(R.id.imageView3);
+        imageView1 = (ImageView) findViewById(R.id.dice1);
+        imageView2 = (ImageView) findViewById(R.id.dice2);
+        imageView3 = (ImageView) findViewById(R.id.dice3);
 
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
