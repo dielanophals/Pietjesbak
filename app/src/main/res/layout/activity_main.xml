@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/table"
+    android:background="@drawable/hout"
     tools:ignore="ContentDescription"
     >
 
@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/table1"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -53,14 +54,13 @@
             android:id="@+id/total_score_player2"
             />
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:text="x"
+            android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
-            android:background="#AA2F0E"
             android:textColor="#ffff"
             android:textSize="20sp"
-            />
             />
 
     </RelativeLayout>
@@ -118,43 +118,50 @@
 
         <ImageView
             android:id="@+id/dice1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/dice1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"/>
 
         <ImageView
             android:id="@+id/dice2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/dice1"
+            android:layout_marginLeft="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/dice1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            />
 
         <ImageView
             android:id="@+id/dice3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
             android:src="@drawable/dice2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/dice1"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"/>
 
         <Button
             android:id="@+id/rollDices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="roll the dice!"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dice1" />
+            app:layout_constraintTop_toBottomOf="@+id/dice1"
+            />
 
         <Button
             android:id="@+id/pass"
@@ -165,5 +172,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rollDices" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
