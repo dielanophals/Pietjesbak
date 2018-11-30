@@ -1,10 +1,12 @@
 package be.dielanophals.pietjesbak;
 
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageView;
+        import android.widget.TextView;
 
         import java.util.Random;
 
@@ -18,6 +20,17 @@ public class Activity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+        Intent intent = getIntent();
+        String string_player1 = intent.getStringExtra(MainActivity.EXTRA_TEXT1);
+        String string_player2 = intent.getStringExtra(MainActivity.EXTRA_TEXT2);
+
+        TextView textView1 = (TextView) findViewById(R.id.player1);
+        TextView textView2 = (TextView) findViewById(R.id.player2);
+
+        textView1.setText(string_player1);
+        textView2.setText(string_player2);
+
         rollDices  = (Button) findViewById(R.id.rollDices);
         imageView1 = (ImageView) findViewById(R.id.dice1);
         imageView2 = (ImageView) findViewById(R.id.dice2);
@@ -39,8 +52,21 @@ public class Activity2 extends AppCompatActivity {
                 imageView3.setImageResource(res3);
             }
         });
+
+        Button quit_button = (Button) findViewById(R.id.quit_button);
+        quit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
     }
     public static int randomDiceValue(){
         return random.nextInt(6) + 1;
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

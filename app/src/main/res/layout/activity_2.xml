@@ -54,6 +54,7 @@ tools:ignore="ContentDescription"
             android:id="@+id/total_score_player2"
             />
         <Button
+            android:id="@+id/quit_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="x"
