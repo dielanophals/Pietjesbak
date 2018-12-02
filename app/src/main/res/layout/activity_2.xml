@@ -89,13 +89,13 @@
         android:text="1/3"
         android:textColor="#fff"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/visual_player1"
+        app:layout_constraintLeft_toRightOf="@id/visual_player"
         android:layout_marginBottom="49dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         />
 
     <TextView
-        android:id="@+id/visual_player1"
+        android:id="@+id/visual_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"

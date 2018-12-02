@@ -27,9 +27,11 @@ public class Activity2 extends AppCompatActivity {
 
         TextView textView1 = (TextView) findViewById(R.id.player1);
         TextView textView2 = (TextView) findViewById(R.id.player2);
+        TextView visual_player = (TextView) findViewById(R.id.visual_player);
 
         textView1.setText(string_player1);
         textView2.setText(string_player2);
+        visual_player.setText(string_player1);
 
         rollDices  = (Button) findViewById(R.id.rollDices);
         imageView1 = (ImageView) findViewById(R.id.dice1);
