@@ -59,6 +59,7 @@
             android:textColor="#ffffff"
             />
         <Button
+            android:id="@+id/quit_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="x"
