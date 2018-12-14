@@ -178,25 +178,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rollDices" />
 
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="50dp"
-        android:src="@drawable/pintje"
-        app:layout_constraintRight_toLeftOf="@id/dice2"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@id/dice1"
-        android:layout_marginRight="40dp"
-        />
 
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="50dp"
-        android:src="@drawable/pintje"
-        app:layout_constraintRight_toLeftOf="@id/dice2"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@id/dice2"
-        android:layout_marginRight="5dp"
-        />
 
     <ImageView
         android:layout_width="28dp"
@@ -247,26 +229,6 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginLeft="105dp"
-        />
-
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="50dp"
-        android:src="@drawable/pintje"
-        app:layout_constraintLeft_toLeftOf="@id/pintje_4"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@id/dice2"
-        android:layout_marginLeft="140dp"
-        />
-
-    <ImageView
-        android:layout_width="28dp"
-        android:layout_height="50dp"
-        android:src="@drawable/pintje"
-        app:layout_constraintLeft_toLeftOf="@id/pintje_4"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@id/dice2"
-        android:layout_marginLeft="175dp"
         />
 
 
