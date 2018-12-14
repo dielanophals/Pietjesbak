@@ -17,7 +17,6 @@ public class Activity2 extends AppCompatActivity {
     private Button rollDices;
     private ImageView imageView1, imageView2, imageView3;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +39,13 @@ public class Activity2 extends AppCompatActivity {
         imageView2 = (ImageView) findViewById(R.id.dice2);
         imageView3 = (ImageView) findViewById(R.id.dice3);
 
-
+        final CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
+        final CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
+        final CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
 
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
-                final CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
-                final CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
-
                 if (!checkBox1.isChecked()) {
                     int value1 = randomDiceValue();
                     int res1 = getResources().getIdentifier("dice" + value1, "drawable", getPackageName());
@@ -64,7 +61,6 @@ public class Activity2 extends AppCompatActivity {
                 if (!checkBox3.isChecked()) {
                     int value3 = randomDiceValue();
                     int res3 = getResources().getIdentifier("dice" + value3, "drawable", getPackageName());
-
                     imageView3.setImageResource(res3);
                 }
 
