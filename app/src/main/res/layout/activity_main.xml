@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/hout">
 
     <TextView
         android:layout_width="match_parent"
@@ -12,7 +13,8 @@
         android:text="Player 1"
         android:layout_marginTop="15dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        android:textColor="#ffffff"/>
 
     <EditText
         android:id="@+id/edittext1"
@@ -20,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        />
 
     <TextView
         android:id="@+id/textinput2"
@@ -30,7 +33,8 @@
         android:layout_below="@id/edittext1"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"/>
 
     <EditText
         android:id="@+id/edittext2"
@@ -38,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_below="@id/textinput2"/>
+        android:layout_below="@id/textinput2"
+        />
 
     <Button
         android:id="@+id/start_game"
