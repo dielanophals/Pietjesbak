@@ -46,6 +46,10 @@ public class Activity2 extends AppCompatActivity {
         final CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
         final CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
 
+        checkBox1.setVisibility(View.INVISIBLE);
+        checkBox2.setVisibility(View.INVISIBLE);
+        checkBox3.setVisibility(View.INVISIBLE);
+
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,12 +72,14 @@ public class Activity2 extends AppCompatActivity {
                 }
 
                 throwCounter++;
-                if(throwCounter == 0){
+                if(throwCounter <= 1){
+                    checkBox1.setVisibility(View.VISIBLE);
+                    checkBox2.setVisibility(View.VISIBLE);
+                    checkBox3.setVisibility(View.VISIBLE);
+                }else if (throwCounter == 3){
                     checkBox1.setVisibility(View.INVISIBLE);
                     checkBox2.setVisibility(View.INVISIBLE);
                     checkBox3.setVisibility(View.INVISIBLE);
-                }
-                if (throwCounter == 3){
                     rollDices.setVisibility(View.INVISIBLE);
                 }
             }
