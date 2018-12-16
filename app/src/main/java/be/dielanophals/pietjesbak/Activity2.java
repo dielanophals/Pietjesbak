@@ -17,6 +17,9 @@ public class Activity2 extends AppCompatActivity {
     private Button rollDices;
     private ImageView imageView1, imageView2, imageView3;
 
+    Integer throwCounter = 0;
+    Boolean turnPlayer1 = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,15 @@ public class Activity2 extends AppCompatActivity {
                     imageView3.setImageResource(res3);
                 }
 
+                throwCounter++;
+                if(throwCounter == 0){
+                    checkBox1.setVisibility(View.INVISIBLE);
+                    checkBox2.setVisibility(View.INVISIBLE);
+                    checkBox3.setVisibility(View.INVISIBLE);
+                }
+                if (throwCounter == 3){
+                    rollDices.setVisibility(View.INVISIBLE);
+                }
             }
         });
 
