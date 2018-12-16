@@ -132,6 +132,17 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"/>
 
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/dice1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="85dp"
+        />
+
     <ImageView
         android:id="@+id/dice2"
         android:layout_width="45dp"
@@ -143,6 +154,17 @@
         app:layout_constraintRight_toRightOf="@id/dice1"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
+        />
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/dice2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="85dp"
         />
 
     <ImageView
@@ -157,11 +179,22 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="20dp"/>
 
+    <CheckBox
+        android:id="@+id/checkbox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/dice3"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="85dp"
+        />
+
     <Button
         android:id="@+id/rollDices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="roll the dice!"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -172,7 +205,7 @@
         android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:text="PASS"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
