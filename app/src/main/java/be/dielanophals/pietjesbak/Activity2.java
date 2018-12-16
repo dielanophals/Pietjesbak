@@ -50,6 +50,8 @@ public class Activity2 extends AppCompatActivity {
         checkBox2.setVisibility(View.INVISIBLE);
         checkBox3.setVisibility(View.INVISIBLE);
 
+        final TextView textViewThrowCounter = (TextView) findViewById(R.id.textViewThrowCounter);
+
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +74,7 @@ public class Activity2 extends AppCompatActivity {
                 }
 
                 throwCounter++;
+                textViewThrowCounter.setText(throwCounter + "/3");
                 if(throwCounter <= 1){
                     checkBox1.setVisibility(View.VISIBLE);
                     checkBox2.setVisibility(View.VISIBLE);
