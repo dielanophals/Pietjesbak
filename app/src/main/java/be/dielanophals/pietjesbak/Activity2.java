@@ -6,6 +6,7 @@ package be.dielanophals.pietjesbak;
         import android.view.View;
         import android.widget.Button;
         import android.widget.CheckBox;
+        import android.widget.CompoundButton;
         import android.widget.ImageView;
         import android.widget.TextView;
 
@@ -79,15 +80,15 @@ public class Activity2 extends AppCompatActivity {
                     imageView3.setImageResource(res3);
                 }
 
-                endTurn.setVisibility(View.VISIBLE);
 
+                endTurn.setVisibility(View.VISIBLE);
+                checkBox1.setVisibility(View.VISIBLE);
+                checkBox2.setVisibility(View.VISIBLE);
+                checkBox3.setVisibility(View.VISIBLE);
                 throwCounter++;
                 if(turnPlayer1 == true){
                     textViewThrowCounter.setText(throwCounter + "/3");
                     if(throwCounter <= 1){
-                        checkBox1.setVisibility(View.VISIBLE);
-                        checkBox2.setVisibility(View.VISIBLE);
-                        checkBox3.setVisibility(View.VISIBLE);
                         endTurn.setVisibility(View.VISIBLE);
                     }else if (throwCounter == 3){
                         checkBox1.setVisibility(View.INVISIBLE);
@@ -124,9 +125,9 @@ public class Activity2 extends AppCompatActivity {
                 }
                 endTurn.setVisibility(View.INVISIBLE);
                 rollDices.setVisibility(View.VISIBLE);
-                checkBox1.setVisibility(View.VISIBLE);
-                checkBox2.setVisibility(View.VISIBLE);
-                checkBox3.setVisibility(View.VISIBLE);
+                checkBox1.setVisibility(View.INVISIBLE);
+                checkBox2.setVisibility(View.INVISIBLE);
+                checkBox3.setVisibility(View.INVISIBLE);
 
                 throwCounter = 0;
 
@@ -134,6 +135,16 @@ public class Activity2 extends AppCompatActivity {
                 imageView1.setImageResource(image);
                 imageView2.setImageResource(image);
                 imageView3.setImageResource(image);
+
+                if(checkBox1.isChecked()) {
+                    checkBox1.toggle();
+                }
+                if(checkBox2.isChecked()) {
+                    checkBox2.toggle();
+                }
+                if(checkBox3.isChecked()) {
+                    checkBox3.toggle();
+                }
             }
         });
 
