@@ -1,6 +1,8 @@
 package be.dielanophals.pietjesbak;
 
+        import android.content.DialogInterface;
         import android.content.Intent;
+        import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.View;
@@ -299,7 +301,26 @@ public class Activity2 extends AppCompatActivity {
         quit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openMainActivity();
+                AlertDialog.Builder builder = new AlertDialog.Builder(Activity2.this);
+
+                builder.setCancelable(true);
+                builder.setTitle("Opgepast!");
+                builder.setMessage("Weet u zeker dat u dit spel wilt stoppen?");
+
+                builder.setNegativeButton("Annuleer", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i){
+                        dialogInterface.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        openMainActivity();
+                    }
+                });
+                builder.show();
             }
         });
     }
