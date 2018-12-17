@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="11dp"
-        android:text="1/3"
+        android:text="0/3"
         android:textColor="#fff"
         android:textSize="15dp"
         app:layout_constraintLeft_toRightOf="@id/visual_player"
@@ -203,7 +203,7 @@
         />
 
     <Button
-        android:id="@+id/pass"
+        android:id="@+id/endTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -212,9 +212,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rollDices" />
 
-
+    <TextView
+        android:id="@+id/round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Round 1"
+        android:textColor="#fff"
+        app:layout_constraintTop_toBottomOf="@+id/endTurn"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        />
 
     <ImageView
+        android:id="@+id/pintje1"
         android:layout_width="28dp"
         android:layout_height="50dp"
         android:src="@drawable/pintje"
@@ -225,6 +237,7 @@
         />
 
     <ImageView
+        android:id="@+id/pintje2"
         android:layout_width="28dp"
         android:layout_height="50dp"
         android:src="@drawable/pintje"
@@ -232,34 +245,36 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginRight="55dp"
-        android:id="@+id/pintje_4"
         />
 
     <ImageView
+        android:id="@+id/pintje3"
         android:layout_width="28dp"
         android:layout_height="50dp"
         android:src="@drawable/pintje"
-        app:layout_constraintLeft_toLeftOf="@id/pintje_4"
+        app:layout_constraintLeft_toLeftOf="@id/pintje2"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginLeft="35dp"
         />
 
     <ImageView
+        android:id="@+id/pintje4"
         android:layout_width="28dp"
         android:layout_height="50dp"
         android:src="@drawable/pintje"
-        app:layout_constraintLeft_toLeftOf="@id/pintje_4"
+        app:layout_constraintLeft_toLeftOf="@id/pintje2"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginLeft="70dp"
         />
 
     <ImageView
+        android:id="@+id/pintje5"
         android:layout_width="28dp"
         android:layout_height="50dp"
         android:src="@drawable/pintje"
-        app:layout_constraintLeft_toLeftOf="@id/pintje_4"
+        app:layout_constraintLeft_toLeftOf="@id/pintje2"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginLeft="105dp"
