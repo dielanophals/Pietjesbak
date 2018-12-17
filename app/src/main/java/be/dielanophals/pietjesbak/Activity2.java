@@ -10,6 +10,8 @@ package be.dielanophals.pietjesbak;
         import android.widget.ImageView;
         import android.widget.TextView;
 
+        import org.w3c.dom.Text;
+
         import java.util.Random;
 
 public class Activity2 extends AppCompatActivity {
@@ -22,6 +24,16 @@ public class Activity2 extends AppCompatActivity {
     Boolean turnPlayer1 = true;
     Integer player1Turns;
     Integer round = 1;
+
+    int value1, value2, value3;
+
+    Integer player1RoundPoints;
+    Integer player2RoundPoints;
+    String player1TotalPoints;
+    String player2TotalPoints;
+
+    int winsPlayer1 = 0;
+    int winsPlayer2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,27 +71,33 @@ public class Activity2 extends AppCompatActivity {
         final TextView textViewThrowCounter = (TextView) findViewById(R.id.textViewThrowCounter);
         final TextView textViewround = (TextView) findViewById(R.id.round);
 
+        final TextView scorePlayer1 = (TextView) findViewById(R.id.total_score_player1);
+        final TextView scorePlayer2 = (TextView) findViewById(R.id.total_score_player2);
+        final TextView roundsWinPlayer1 = (TextView) findViewById(R.id.rounds_win_player1);
+        final TextView roundsWinPlayer2 = (TextView) findViewById(R.id.rounds_win_player2);
+
+        final TextView results = (TextView) findViewById(R.id.results);
+
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkBox1.isChecked()) {
-                    int value1 = randomDiceValue();
+                    value1 = randomDiceValue();
                     int res1 = getResources().getIdentifier("dice" + value1, "drawable", getPackageName());
-
                     imageView1.setImageResource(res1);
                 }
                 if (!checkBox2.isChecked()) {
-                    int value2 = randomDiceValue();
+                    value2 = randomDiceValue();
                     int res2 = getResources().getIdentifier("dice" + value2, "drawable", getPackageName());
-
                     imageView2.setImageResource(res2);
                 }
                 if (!checkBox3.isChecked()) {
-                    int value3 = randomDiceValue();
+                    value3 = randomDiceValue();
                     int res3 = getResources().getIdentifier("dice" + value3, "drawable", getPackageName());
                     imageView3.setImageResource(res3);
                 }
 
+                results.setVisibility(View.INVISIBLE);
 
                 endTurn.setVisibility(View.VISIBLE);
                 checkBox1.setVisibility(View.VISIBLE);
@@ -111,39 +129,168 @@ public class Activity2 extends AppCompatActivity {
         endTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(turnPlayer1 == true){
-                    turnPlayer1 = false;
-                    player1Turns = throwCounter;
-                    textViewThrowCounter.setText("0/" + player1Turns);
-                    visual_player.setText(string_player2);
+                if(value1 == 1){
+                    value1 = 100;
+                }else if(value1 == 2){
+                    value1 = 2;
+                }else if(value1 == 3){
+                    value1 = 3;
+                }else if(value1 == 4){
+                    value1 = 4;
+                }else if(value1 == 5){
+                    value1 = 5;
+                }else if(value1 == 6){
+                    value1 = 60;
+                }
+
+                if(value2 == 1){
+                    value2 = 100;
+                }else if(value2 == 2){
+                    value2 = 2;
+                }else if(value2 == 3){
+                    value2 = 3;
+                }else if(value2 == 4){
+                    value2 = 4;
+                }else if(value2 == 5){
+                    value2 = 5;
+                }else if(value2 == 6){
+                    value2 = 60;
+                }
+
+                if(value3 == 1){
+                    value3 = 100;
+                }else if(value3 == 2){
+                    value3 = 2;
+                }else if(value3 == 3){
+                    value3 = 3;
+                }else if(value3 == 4){
+                    value3 = 4;
+                }else if(value3 == 5){
+                    value3 = 5;
+                }else if(value3 == 6){
+                    value3 = 60;
+                }
+
+                if(value1 == 60 && value2 == 5 && value3 == 4 || value1 == 60 && value2 == 4 && value3 == 5 || value1 == 5 && value2 == 60 && value3 == 4 || value1 == 5 && value2 == 4 && value3 == 60 || value1 == 4 && value2 == 60 && value3 == 5 || value1 == 4 && value2 == 5 && value3 == 60){
+                    if(turnPlayer1 == true){
+                        player1RoundPoints = 700;
+                    }else{
+                        player2RoundPoints = 700;
+                    }
+                }else if(value1 == value2 && value1 == value3){
+                    switch(value1){
+                        case 2:
+                            if(turnPlayer1 == true){
+                                player1RoundPoints = 270;
+                            }else{
+                                player2RoundPoints = 270;
+                            }
+                        break;
+
+                        case 3:
+                            if(turnPlayer1 == true){
+                                player1RoundPoints = 333;
+                            }else{
+                                player2RoundPoints = 333;
+                            }
+                        break;
+
+                        case 4:
+                            if(turnPlayer1 == true){
+                                player1RoundPoints = 444;
+                            }else{
+                                player2RoundPoints = 444;
+                            }
+                        break;
+
+                        case 5:
+                            if(turnPlayer1 == true){
+                                player1RoundPoints = 555;
+                            }else{
+                                player2RoundPoints = 555;
+                            }
+                        break;
+
+                        case 6:
+                            if(turnPlayer1 == true){
+                                player1RoundPoints = 666;
+                            }else{
+                                player2RoundPoints = 666;
+                            }
+                            break;
+                    }
                 }else{
-                    turnPlayer1 = true;
-                    visual_player.setText(string_player1);
-                    textViewThrowCounter.setText("0/3");
-                    round++;
-                    textViewround.setText("Round " + round);
+                    if(turnPlayer1 == true){
+                        player1RoundPoints = value1 + value2 + value3;
+                    }else{
+                        player2RoundPoints = value1 + value2 + value3;
+                    }
                 }
-                endTurn.setVisibility(View.INVISIBLE);
-                rollDices.setVisibility(View.VISIBLE);
-                checkBox1.setVisibility(View.INVISIBLE);
-                checkBox2.setVisibility(View.INVISIBLE);
-                checkBox3.setVisibility(View.INVISIBLE);
 
-                throwCounter = 0;
+                if(value1 == 100 && value2 == 100 && value3 == 100){
+                    //speler gewonnen
+                    results.setVisibility(View.VISIBLE);
+                    if(turnPlayer1 == true){
+                        results.setText(string_player1 + " wint het spel!");
+                    }else{
+                        results.setText(string_player2 + " wint het spel!");
+                    }
+                }else{
+                    if(turnPlayer1 == true){
+                        turnPlayer1 = false;
+                        player1Turns = throwCounter;
+                        textViewThrowCounter.setText("0/" + player1Turns);
+                        visual_player.setText(string_player2);
 
-                int image = getResources().getIdentifier("dicestart", "drawable", getPackageName());
-                imageView1.setImageResource(image);
-                imageView2.setImageResource(image);
-                imageView3.setImageResource(image);
+                        player1TotalPoints = value1 + " " + value2 + " " + value3;
+                        scorePlayer1.setText("" + player1TotalPoints);
+                    }else{
+                        turnPlayer1 = true;
+                        visual_player.setText(string_player1);
+                        textViewThrowCounter.setText("0/3");
+                        round++;
+                        textViewround.setText("Round " + round);
 
-                if(checkBox1.isChecked()) {
-                    checkBox1.toggle();
-                }
-                if(checkBox2.isChecked()) {
-                    checkBox2.toggle();
-                }
-                if(checkBox3.isChecked()) {
-                    checkBox3.toggle();
+                        player2TotalPoints = value1 + " " + value2 + " " + value3;
+                        scorePlayer2.setText("" + player2TotalPoints);
+
+                        results.setVisibility(View.VISIBLE);
+                        String winner;
+                        if(player1RoundPoints > player2RoundPoints){
+                            winner = string_player1;
+                            winsPlayer1++;
+                            roundsWinPlayer1.setText("" + winsPlayer1);
+                        }else if(player1RoundPoints == player2RoundPoints){
+                            winner = "niemand";
+                        }else{
+                            winner = string_player2;
+                            winsPlayer2++;
+                            roundsWinPlayer2.setText("" + winsPlayer2);
+                        }
+                        results.setText(winner + " wint deze ronde!");
+                    }
+                    endTurn.setVisibility(View.INVISIBLE);
+                    rollDices.setVisibility(View.VISIBLE);
+
+                    if(checkBox1.isChecked()) {
+                        checkBox1.toggle();
+                    }
+                    if(checkBox2.isChecked()) {
+                        checkBox2.toggle();
+                    }
+                    if(checkBox3.isChecked()) {
+                        checkBox3.toggle();
+                    }
+                    checkBox1.setVisibility(View.INVISIBLE);
+                    checkBox2.setVisibility(View.INVISIBLE);
+                    checkBox3.setVisibility(View.INVISIBLE);
+
+                    throwCounter = 0;
+
+                    int image = getResources().getIdentifier("dicestart", "drawable", getPackageName());
+                    imageView1.setImageResource(image);
+                    imageView2.setImageResource(image);
+                    imageView3.setImageResource(image);
                 }
             }
         });
