@@ -310,14 +310,14 @@ public class Activity2 extends AppCompatActivity {
                 builder.setNegativeButton("Annuleer", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i){
-                        dialogInterface.cancel();
+                    dialogInterface.cancel();
                     }
                 });
 
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        openMainActivity();
+                    openMainActivity();
                     }
                 });
                 builder.show();
