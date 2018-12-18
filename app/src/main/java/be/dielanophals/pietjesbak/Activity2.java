@@ -262,7 +262,7 @@ public class Activity2 extends AppCompatActivity {
                             winner = string_player1;
                             winsPlayer1++;
                             roundsWinPlayer1.setText("" + winsPlayer1);
-                        }else if(player1RoundPoints == player2RoundPoints){
+                        }else if(player1RoundPoints.equals(player2RoundPoints)){
                             winner = "niemand";
                         }else{
                             winner = string_player2;
