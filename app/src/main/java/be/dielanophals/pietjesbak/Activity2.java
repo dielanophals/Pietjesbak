@@ -290,6 +290,11 @@ public class Activity2 extends AppCompatActivity {
                         System.out.println(minpintjes);
                         results.setText(winner + " wint deze ronde!");
                         totalPintjes();
+                        if(player1Pintjes <= 0){
+                            results.setText(winner + " wint het spel!");
+                        }else if(player2Pintjes <= 0){
+                            results.setText(winner + " wint het spel!");
+                        }
                     }
                     endTurn.setVisibility(View.INVISIBLE);
                     rollDices.setVisibility(View.VISIBLE);
@@ -354,28 +359,72 @@ public class Activity2 extends AppCompatActivity {
     }
 
     public void totalPintjes(){
-        if(player1Pintjes == 4){
-            pintje5.setVisibility(View.INVISIBLE);
-        }else if(player1Pintjes == 3){
-            pintje5.setVisibility(View.INVISIBLE);
-            pintje4.setVisibility(View.INVISIBLE);
-        }else if(player1Pintjes == 2){
-            pintje5.setVisibility(View.INVISIBLE);
-            pintje4.setVisibility(View.INVISIBLE);
-            pintje3.setVisibility(View.INVISIBLE);
-        }else if(player1Pintjes == 1){
-            pintje5.setVisibility(View.INVISIBLE);
-            pintje4.setVisibility(View.INVISIBLE);
-            pintje3.setVisibility(View.INVISIBLE);
-            pintje2.setVisibility(View.INVISIBLE);
-        }else if(player1Pintjes <= 0){
-            pintje5.setVisibility(View.INVISIBLE);
-            pintje4.setVisibility(View.INVISIBLE);
-            pintje3.setVisibility(View.INVISIBLE);
-            pintje2.setVisibility(View.INVISIBLE);
-            pintje1.setVisibility(View.INVISIBLE);
+        if(player1RoundPoints > player2RoundPoints){
+            if(player1Pintjes == 4){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.VISIBLE);
+                pintje3.setVisibility(View.VISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player1Pintjes == 3){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.VISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+
+            }else if(player1Pintjes == 2){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player1Pintjes == 1){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.INVISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player1Pintjes <= 0){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.INVISIBLE);
+                pintje1.setVisibility(View.INVISIBLE);
+            }
+        }else if(player1RoundPoints < player2RoundPoints){
+            if(player2Pintjes == 4){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.VISIBLE);
+                pintje3.setVisibility(View.VISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player2Pintjes == 3){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.VISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+
+            }else if(player2Pintjes == 2){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.VISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player2Pintjes == 1){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.INVISIBLE);
+                pintje1.setVisibility(View.VISIBLE);
+            }else if(player2Pintjes <= 0){
+                pintje5.setVisibility(View.INVISIBLE);
+                pintje4.setVisibility(View.INVISIBLE);
+                pintje3.setVisibility(View.INVISIBLE);
+                pintje2.setVisibility(View.INVISIBLE);
+                pintje1.setVisibility(View.INVISIBLE);
+            }
         }
-        System.out.println(player1Pintjes);
-        System.out.println(minpintjes);
     }
 }
