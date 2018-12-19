@@ -2,6 +2,7 @@ package be.dielanophals.pietjesbak;
 
         import android.content.DialogInterface;
         import android.content.Intent;
+        import android.support.constraint.ConstraintLayout;
         import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -10,6 +11,7 @@ package be.dielanophals.pietjesbak;
         import android.widget.CheckBox;
         import android.widget.CompoundButton;
         import android.widget.ImageView;
+        import android.widget.RelativeLayout;
         import android.widget.TextView;
 
         import org.w3c.dom.Text;
@@ -20,7 +22,7 @@ public class Activity2 extends AppCompatActivity {
 
     public static final Random random = new Random();
     private Button rollDices;
-    private ImageView imageView1, imageView2, imageView3;
+    private ImageView imageView1, imageView2, imageView3, pintje1, pintje2, pintje3, pintje4, pintje5;
 
     Integer throwCounter = 0;
     Boolean turnPlayer1 = true;
@@ -33,6 +35,9 @@ public class Activity2 extends AppCompatActivity {
     Integer player2RoundPoints;
     String player1TotalPoints;
     String player2TotalPoints;
+    int player1Pintjes = 5;
+    int player2Pintjes = 5;
+    int minpintjes = 0;
 
     int winsPlayer1 = 0;
     int winsPlayer2 = 0;
@@ -79,6 +84,12 @@ public class Activity2 extends AppCompatActivity {
         final TextView roundsWinPlayer2 = (TextView) findViewById(R.id.rounds_win_player2);
 
         final TextView results = (TextView) findViewById(R.id.results);
+
+        pintje1 = (ImageView) findViewById(R.id.pintje1);
+        pintje2 = (ImageView) findViewById(R.id.pintje2);
+        pintje3 = (ImageView) findViewById(R.id.pintje3);
+        pintje4 = (ImageView) findViewById(R.id.pintje4);
+        pintje5 = (ImageView) findViewById(R.id.pintje5);
 
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +190,7 @@ public class Activity2 extends AppCompatActivity {
                     }else{
                         player2RoundPoints = 700;
                     }
+                    minpintjes = 3;
                 }else if(value1 == value2 && value1 == value3){
                     switch(value1){
                         case 2:
@@ -221,12 +233,14 @@ public class Activity2 extends AppCompatActivity {
                             }
                             break;
                     }
+                    minpintjes = 2;
                 }else{
                     if(turnPlayer1 == true){
                         player1RoundPoints = value1 + value2 + value3;
                     }else{
                         player2RoundPoints = value1 + value2 + value3;
                     }
+                    minpintjes = 2;
                 }
 
                 if(value1 == 100 && value2 == 100 && value3 == 100){
@@ -262,14 +276,20 @@ public class Activity2 extends AppCompatActivity {
                             winner = string_player1;
                             winsPlayer1++;
                             roundsWinPlayer1.setText("" + winsPlayer1);
+
+                            player1Pintjes = player1Pintjes - minpintjes;
                         }else if(player1RoundPoints.equals(player2RoundPoints)){
                             winner = "niemand";
                         }else{
                             winner = string_player2;
                             winsPlayer2++;
                             roundsWinPlayer2.setText("" + winsPlayer2);
+
+                            player2Pintjes = player2Pintjes - minpintjes;
                         }
+                        System.out.println(minpintjes);
                         results.setText(winner + " wint deze ronde!");
+                        totalPintjes();
                     }
                     endTurn.setVisibility(View.INVISIBLE);
                     rollDices.setVisibility(View.VISIBLE);
@@ -331,5 +351,31 @@ public class Activity2 extends AppCompatActivity {
     public void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void totalPintjes(){
+        if(player1Pintjes == 4){
+            pintje5.setVisibility(View.INVISIBLE);
+        }else if(player1Pintjes == 3){
+            pintje5.setVisibility(View.INVISIBLE);
+            pintje4.setVisibility(View.INVISIBLE);
+        }else if(player1Pintjes == 2){
+            pintje5.setVisibility(View.INVISIBLE);
+            pintje4.setVisibility(View.INVISIBLE);
+            pintje3.setVisibility(View.INVISIBLE);
+        }else if(player1Pintjes == 1){
+            pintje5.setVisibility(View.INVISIBLE);
+            pintje4.setVisibility(View.INVISIBLE);
+            pintje3.setVisibility(View.INVISIBLE);
+            pintje2.setVisibility(View.INVISIBLE);
+        }else if(player1Pintjes <= 0){
+            pintje5.setVisibility(View.INVISIBLE);
+            pintje4.setVisibility(View.INVISIBLE);
+            pintje3.setVisibility(View.INVISIBLE);
+            pintje2.setVisibility(View.INVISIBLE);
+            pintje1.setVisibility(View.INVISIBLE);
+        }
+        System.out.println(player1Pintjes);
+        System.out.println(minpintjes);
     }
 }
