@@ -27,7 +27,15 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.jcminarro:RoundKornerLayouts:0.2.0'
 
+<<<<<<< HEAD
     implementation 'com.google.firebase:firebase-firestore:17.1.5'
+=======
+
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+
+
+>>>>>>> parent of afba557... Voor Firebase
 }
 
 apply plugin: 'com.google.gms.google-services'
