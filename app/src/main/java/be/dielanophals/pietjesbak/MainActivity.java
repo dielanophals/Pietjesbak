@@ -65,16 +65,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    public void addDatabase(){
-        String name = edittekst1.getText().toString();
-        Map<String, String> userMap = new HashMap<>();
-        userMap.put("name", name);
 
-        mFirestore.collection("players").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(MainActivity.this, "ejoy!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 }
