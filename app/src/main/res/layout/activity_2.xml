@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/hout"
     tools:ignore="ContentDescription"
+    android:id="@+id/layout"
     >
 
     <RelativeLayout
