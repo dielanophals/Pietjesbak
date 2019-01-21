@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView name_check = (TextView) findViewById(R.id.name_check);
 
-        if(string_player1.isEmpty() && string_player2.isEmpty()){
-           name_check.setText("Gelieve een naam in te vullen voor beide spelers");
+        if(string_player1.isEmpty() || string_player2.isEmpty()){
+            Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
             Intent intent = new Intent(this, Activity2.class);
             intent.putExtra(EXTRA_TEXT1, string_player1);
