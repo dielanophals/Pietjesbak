@@ -225,7 +225,7 @@ public class Activity2 extends AppCompatActivity {
                             }
                         break;
 
-                        case 60:
+                        case 6:
                             if(turnPlayer1 == true){
                                 player1RoundPoints = 666;
                             }else{
@@ -296,14 +296,8 @@ public class Activity2 extends AppCompatActivity {
                             results.setText(winner + " wint het spel!");
                         }
                     }
-                    if(player1Pintjes <= 0 || player2Pintjes <= 0){
-                        endTurn.setVisibility(View.INVISIBLE);
-                        rollDices.setVisibility(View.INVISIBLE);
-                    }else{
-                        endTurn.setVisibility(View.INVISIBLE);
-                        rollDices.setVisibility(View.VISIBLE);
-                    }
-
+                    endTurn.setVisibility(View.INVISIBLE);
+                    rollDices.setVisibility(View.VISIBLE);
 
                     if(checkBox1.isChecked()) {
                         checkBox1.toggle();
