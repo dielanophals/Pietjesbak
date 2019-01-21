@@ -9,3 +9,4 @@
 /captures
 .externalNativeBuild
 app/src/main/res/layout/activity_main.xml
+app/src/main/java/be/dielanophals/pietjesbak/MainActivity.java
