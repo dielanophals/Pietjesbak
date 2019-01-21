@@ -60,19 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
             Usermap.put("name", string_player1);
 
-            mFirestore.collection("Users").add(Usermap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    Toast.makeText(MainActivity.this, "Username added to firestore", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    String error = e.getMessage();
+            mFirestore.collection("Users").add(Usermap);
 
-                    Toast.makeText(MainActivity.this, "Error:" + error, Toast.LENGTH_SHORT).show();
-                }
-            });
+            Usermap.put("name", string_player2);
+
+            mFirestore.collection("Users").add(Usermap);
 
             Intent intent = new Intent(this, Activity2.class);
             intent.putExtra(EXTRA_TEXT1, string_player1);
