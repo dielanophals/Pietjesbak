@@ -39,7 +39,7 @@ public class Winners extends AppCompatActivity {
                                 System.out.println(document.getId() + " => " + document.getData());
                                 String Name = document.getData().toString();
 
-                                List.append(Name);
+                                List.append(Name + "\n");
                             }
                         } else {
                             System.out.println("Error getting documents: " + task.getException());
