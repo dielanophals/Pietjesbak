@@ -99,7 +99,7 @@
         android:textColor="#030005"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="View winners"
+        android:text="View all players"
         android:id="@+id/winners"/>
 
     <ImageView

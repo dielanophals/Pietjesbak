@@ -473,7 +473,7 @@ public class Activity2 extends AppCompatActivity {
                 });
 
                 Picasso.with(getBaseContext())
-                        .load("https://cds.mnm.be/sites/default/files/styles/800x600_focus/public/article/2016_09/safi.jpg")
+                        .load("http://www.pngall.com/wp-content/uploads/2016/04/Winner-PNG-Image.png")
                         .into(target);
             }
         });
