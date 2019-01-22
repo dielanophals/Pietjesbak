@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity2();
+
+
             }
         });
     }
@@ -93,5 +95,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
-

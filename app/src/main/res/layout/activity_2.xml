@@ -98,6 +98,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/colorSwitch"
         android:layout_width="155dp"
         android:layout_height="40dp"
         android:background="@drawable/gradient"
@@ -223,6 +224,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="roll the dice!"
+        android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice1"
@@ -236,7 +238,8 @@
         android:text="END"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rollDices" />
+        app:layout_constraintTop_toBottomOf="@+id/rollDices"
+        />
 
     <TextView
         android:id="@+id/round"
@@ -321,9 +324,9 @@
 
     <RelativeLayout
         android:id="@+id/pop_up"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="#FF9900"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:background="#0C0902"
         android:visibility="invisible"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -341,8 +344,15 @@
             android:layout_alignParentRight="true"
             android:textColor="#ffff"
             android:textSize="20sp"
-            />
 
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/win"
+            android:layout_marginBottom="100dp"
+
+            />
         <TextView
             android:id="@+id/pop_up_text"
             android:layout_width="wrap_content"

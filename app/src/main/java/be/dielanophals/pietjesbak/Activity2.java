@@ -50,6 +50,7 @@ public class Activity2 extends AppCompatActivity {
     Integer player2RoundPoints;
     String player1TotalPoints;
     String player2TotalPoints;
+    String Color;
     int player1Pintjes = 5;
     int player2Pintjes = 5;
     int minpintjes = 0;
@@ -93,12 +94,15 @@ public class Activity2 extends AppCompatActivity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_2);
 
+        /*getIntent() is used to pass data from an activity to another*/
         Intent intent = getIntent();
         final String string_player1 = intent.getStringExtra(MainActivity.EXTRA_TEXT1);
         final String string_player2 = intent.getStringExtra(MainActivity.EXTRA_TEXT2);
 
+        /*get the names from mainActivity and put them in a textView*/
         TextView textView1 = (TextView) findViewById(R.id.player1);
         TextView textView2 = (TextView) findViewById(R.id.player2);
+        final TextView colorSwitch = (TextView) findViewById(R.id.colorSwitch);
         final TextView visual_player = (TextView) findViewById(R.id.visual_player);
 
         textView1.setText(string_player1);
@@ -153,6 +157,7 @@ public class Activity2 extends AppCompatActivity {
             public void onClick(View v) {
                 if (!checkBox1.isChecked()) {
                     value1 = randomDiceValue();
+                    /*set your imageView to a the value that you've checked*/
                     int res1 = getResources().getIdentifier("dice" + value1, "drawable", getPackageName());
                     imageView1.setImageResource(res1);
                 }
@@ -168,12 +173,12 @@ public class Activity2 extends AppCompatActivity {
                 }
 
                 results.setVisibility(View.INVISIBLE);
-
                 endTurn.setVisibility(View.VISIBLE);
                 checkBox1.setVisibility(View.VISIBLE);
                 checkBox2.setVisibility(View.VISIBLE);
                 checkBox3.setVisibility(View.VISIBLE);
                 throwCounter++;
+
                 if(turnPlayer1 == true){
                     scorePlayer1.setText("/");
                     scorePlayer2.setText("/");
@@ -298,6 +303,8 @@ public class Activity2 extends AppCompatActivity {
                         player1RoundPoints = value1 + value2 + value3;
                     }else{
                         player2RoundPoints = value1 + value2 + value3;
+
+
                     }
                     minpintjes = 2;
                 }
@@ -338,6 +345,7 @@ public class Activity2 extends AppCompatActivity {
                         player2TotalPoints = value1 + " " + value2 + " " + value3;
                         scorePlayer2.setText("" + player2TotalPoints);
 
+
                         results.setVisibility(View.VISIBLE);
                         String winner;
                         if(player1RoundPoints > player2RoundPoints){
@@ -358,6 +366,7 @@ public class Activity2 extends AppCompatActivity {
                         System.out.println(minpintjes);
                         results.setText(winner + " wint deze ronde!");
                         totalPintjes();
+                        rollDices.setVisibility(View.INVISIBLE);
                         if(player1Pintjes <= 0){
                             pop_up_text.setText(winner + " wint het spel!");
                             Frame.setVisibility(View.VISIBLE);
