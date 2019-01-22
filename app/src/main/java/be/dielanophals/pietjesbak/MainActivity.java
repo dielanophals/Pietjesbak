@@ -1,7 +1,12 @@
 package be.dielanophals.pietjesbak;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.os.Message;
+||||||| merged common ancestors
+=======
+import android.support.annotation.NonNull;
+>>>>>>> master
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +16,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
+||||||| merged common ancestors
+import java.util.Random;
+=======
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+>>>>>>> master
 
 import java.util.Random;
 @IgnoreExtraProperties
@@ -24,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText edittekst2;
     private Button button;
 
+    private FirebaseFirestore mFirestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mFirestore = FirebaseFirestore.getInstance();
 
         Button button = (Button) findViewById(R.id.start_game);
 
@@ -51,9 +75,19 @@ public class MainActivity extends AppCompatActivity {
         String string_player2 = player2.getText().toString();
 
 
-        if(string_player1.isEmpty() || string_player2.isEmpty()){
+        if(string_player1.isEmpty() && string_player2.isEmpty()){
             Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
+            Map<String, String> Usermap = new HashMap<>();
+
+            Usermap.put("name", string_player1);
+
+            mFirestore.collection("Users").add(Usermap);
+
+            Usermap.put("name", string_player2);
+
+            mFirestore.collection("Users").add(Usermap);
+
             Intent intent = new Intent(this, Activity2.class);
             intent.putExtra(EXTRA_TEXT1, string_player1);
             intent.putExtra(EXTRA_TEXT2, string_player2);
@@ -61,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
 
 }
 
+||||||| merged common ancestors
+}
+
+=======
+}
+>>>>>>> master
