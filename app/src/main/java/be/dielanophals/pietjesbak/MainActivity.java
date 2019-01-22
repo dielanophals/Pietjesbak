@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         TextView name_check = (TextView) findViewById(R.id.name_check);
 
         if(string_player1.isEmpty() && string_player2.isEmpty()){
-            name_check.setText("Gelieve een naam in te vullen voor beide spelers");
+            Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
             Map<String, String> Usermap = new HashMap<>();
 

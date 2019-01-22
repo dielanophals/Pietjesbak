@@ -10,6 +10,7 @@ package be.dielanophals.pietjesbak;
         import android.widget.Button;
         import android.widget.CheckBox;
         import android.widget.CompoundButton;
+        import android.widget.FrameLayout;
         import android.widget.ImageView;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
@@ -90,6 +91,10 @@ public class Activity2 extends AppCompatActivity {
         pintje3 = (ImageView) findViewById(R.id.pintje3);
         pintje4 = (ImageView) findViewById(R.id.pintje4);
         pintje5 = (ImageView) findViewById(R.id.pintje5);
+
+        final FrameLayout Frame = (FrameLayout) findViewById(R.id.pop_up);
+
+        final TextView pop_up_text = (TextView) findViewById(R.id.pop_up_text);
 
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,6 +266,7 @@ public class Activity2 extends AppCompatActivity {
                         player1TotalPoints = value1 + " " + value2 + " " + value3;
                         scorePlayer1.setText("" + player1TotalPoints);
                     }else{
+                        //Ronde gedaan
                         turnPlayer1 = true;
                         visual_player.setText(string_player1);
                         textViewThrowCounter.setText("0/3");
@@ -291,9 +297,13 @@ public class Activity2 extends AppCompatActivity {
                         results.setText(winner + " wint deze ronde!");
                         totalPintjes();
                         if(player1Pintjes <= 0){
-                            results.setText(winner + " wint het spel!");
+                            pop_up_text.setText(winner + " wint het spel!");
+                            Frame.setVisibility(View.VISIBLE);
+                            rollDices.setVisibility(View.INVISIBLE);
                         }else if(player2Pintjes <= 0){
-                            results.setText(winner + " wint het spel!");
+                            pop_up_text.setText(winner + " wint het spel!");
+                            Frame.setVisibility(View.VISIBLE);
+                            rollDices.setVisibility(View.INVISIBLE);
                         }
                     }
                     endTurn.setVisibility(View.INVISIBLE);

@@ -319,5 +319,21 @@
         android:layout_marginLeft="105dp"
         />
 
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:background="#FF9900"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/pop_up"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/pop_up_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winnaar" />
+    </FrameLayout>
+
 
 </android.support.constraint.ConstraintLayout>
