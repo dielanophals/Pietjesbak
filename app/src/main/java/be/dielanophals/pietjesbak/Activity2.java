@@ -2,6 +2,8 @@ package be.dielanophals.pietjesbak;
 
         import android.content.DialogInterface;
         import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.graphics.drawable.Drawable;
         import android.support.constraint.ConstraintLayout;
         import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
@@ -14,9 +16,21 @@ package be.dielanophals.pietjesbak;
         import android.widget.ImageView;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
+        import android.widget.Toast;
+
+        import com.facebook.CallbackManager;
+        import com.facebook.FacebookCallback;
+        import com.facebook.FacebookException;
+        import com.facebook.FacebookSdk;
+        import com.facebook.share.Sharer;
+        import com.facebook.share.model.SharePhoto;
+        import com.facebook.share.model.SharePhotoContent;
+        import com.facebook.share.widget.ShareDialog;
+        import com.squareup.picasso.Picasso;
 
         import org.w3c.dom.Text;
 
+        import java.lang.annotation.Target;
         import java.util.Random;
 
 public class Activity2 extends AppCompatActivity {
@@ -43,9 +57,40 @@ public class Activity2 extends AppCompatActivity {
     int winsPlayer1 = 0;
     int winsPlayer2 = 0;
 
+    //FB
+
+    CallbackManager callBackManager;
+    ShareDialog shareDialog;
+
+    com.squareup.picasso.Target target = new com.squareup.picasso.Target() {
+        @Override
+        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            SharePhoto sharePhoto = new SharePhoto.Builder()
+                    .setBitmap(bitmap)
+                    .build();
+            if(ShareDialog.canShow(SharePhotoContent.class)){
+                SharePhotoContent content = new SharePhotoContent.Builder()
+                        .addPhoto(sharePhoto)
+                        .build();
+                shareDialog.show(content);
+            }
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {
+
+        }
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_2);
 
         Intent intent = getIntent();
@@ -95,6 +140,13 @@ public class Activity2 extends AppCompatActivity {
         final RelativeLayout Frame = (RelativeLayout) findViewById(R.id.pop_up);
 
         final TextView pop_up_text = (TextView) findViewById(R.id.pop_up_text);
+
+        //FB
+
+        final Button btnShare = (Button) findViewById(R.id.btnShare);
+
+        callBackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
 
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -378,6 +430,33 @@ public class Activity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Frame.setVisibility(View.INVISIBLE);
                 openMainActivity();
+            }
+        });
+
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Create Callback
+                shareDialog.registerCallback(callBackManager, new FacebookCallback<Sharer.Result>() {
+                    @Override
+                    public void onSuccess(Sharer.Result result) {
+                        Toast.makeText(Activity2.this, "Share successful", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(Activity2.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+                        Toast.makeText(Activity2.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                Picasso.with(getBaseContext())
+                        .load("https://cds.mnm.be/sites/default/files/styles/800x600_focus/public/article/2016_09/safi.jpg")
+                        .into(target);
             }
         });
     }

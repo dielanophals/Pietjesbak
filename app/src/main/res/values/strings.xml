@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pietjesbak</string>
+    <string name="facebook_app_id">368783187240544</string>
+    <string name="facebook_login_protocol_scheme">fb368783187240544</string>
 </resources>
