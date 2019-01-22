@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         String string_player2 = player2.getText().toString();
 
 
-        if(string_player1.isEmpty() && string_player2.isEmpty()){
+        if(string_player1.isEmpty() || string_player2.isEmpty()){
             Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
             Map<String, String> Usermap = new HashMap<>();
