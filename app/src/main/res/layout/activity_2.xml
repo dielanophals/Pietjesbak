@@ -46,7 +46,7 @@
             android:id="@+id/total_score_player1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="/"
             android:textSize="20sp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="8dp"
@@ -57,17 +57,16 @@
             android:id="@+id/rounds_win_player1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="20sp"
             android:layout_marginLeft="240dp"
             android:layout_marginTop="8dp"
+            android:text="0"
             android:textColor="#ffffff"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="/"
             android:textSize="20sp"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="47dp"
@@ -319,6 +318,43 @@
         app:layout_constraintBottom_toTopOf="@id/dice2"
         android:layout_marginLeft="105dp"
         />
+
+    <RelativeLayout
+        android:id="@+id/pop_up"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="#FF9900"
+        android:visibility="invisible"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/close_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="x"
+            android:background="@drawable/quit_button"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffff"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/pop_up_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="112dp"
+            android:gravity="center"
+            android:text="Winnaar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </RelativeLayout>
 
 
 </android.support.constraint.ConstraintLayout>
