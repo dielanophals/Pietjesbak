@@ -6,6 +6,7 @@ package be.dielanophals.pietjesbak;
         import android.graphics.Typeface;
         import android.graphics.drawable.Drawable;
         import android.support.constraint.ConstraintLayout;
+        import android.support.v4.content.ContextCompat;
         import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -137,6 +138,8 @@ public class Activity2 extends AppCompatActivity {
         final TextView scorePlayer2 = (TextView) findViewById(R.id.total_score_player2);
         final TextView roundsWinPlayer1 = (TextView) findViewById(R.id.rounds_win_player1);
         final TextView roundsWinPlayer2 = (TextView) findViewById(R.id.rounds_win_player2);
+
+        final TextView colorSwitch = (TextView) findViewById(R.id.colorSwitch);
 
         scorePlayer1.setTypeface(myCustomFont);
         scorePlayer2.setTypeface(myCustomFont);
