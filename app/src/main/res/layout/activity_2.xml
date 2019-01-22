@@ -20,7 +20,12 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/table1"/>
+            android:src="@drawable/table1"/>-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="270dp"
+            android:layout_marginTop="-170dp"
+            android:src="@drawable/bord"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +33,8 @@
             android:text="Player 1"
             android:textSize="20sp"
             android:id="@+id/player1"
-            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="18dp"
             android:textColor="#fff"/>
 
         <TextView
@@ -36,8 +42,8 @@
             android:layout_height="wrap_content"
             android:text="Player 2"
             android:textSize="20sp"
-            android:layout_marginTop="45dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="18dp"
             android:id="@+id/player2"
             android:textColor="#fff"
 
@@ -49,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="/"
             android:textSize="20sp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="170dp"
             android:layout_marginTop="8dp"
             android:textColor="#ffffff"
             />
@@ -58,7 +64,7 @@
             android:id="@+id/rounds_win_player1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="240dp"
+            android:layout_marginLeft="280dp"
             android:layout_marginTop="8dp"
             android:text="0"
             android:textColor="#ffffff"
@@ -69,7 +75,7 @@
             android:layout_height="wrap_content"
             android:text="/"
             android:textSize="20sp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="170dp"
             android:layout_marginTop="47dp"
             android:id="@+id/total_score_player2"
             android:textColor="#ffffff"
@@ -80,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="0"
             android:textSize="20sp"
-            android:layout_marginLeft="240dp"
+            android:layout_marginLeft="280dp"
             android:layout_marginTop="47dp"
             android:id="@+id/rounds_win_player2"
             android:textColor="#ffffff"
@@ -92,6 +98,7 @@
             android:text="x"
             android:background="@drawable/quit_button"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
             android:textColor="#ffff"
             android:textSize="15sp"
             />
