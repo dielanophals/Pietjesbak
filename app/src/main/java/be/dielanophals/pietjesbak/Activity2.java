@@ -92,7 +92,7 @@ public class Activity2 extends AppCompatActivity {
         pintje4 = (ImageView) findViewById(R.id.pintje4);
         pintje5 = (ImageView) findViewById(R.id.pintje5);
 
-        final FrameLayout Frame = (FrameLayout) findViewById(R.id.pop_up);
+        final RelativeLayout Frame = (RelativeLayout) findViewById(R.id.pop_up);
 
         final TextView pop_up_text = (TextView) findViewById(R.id.pop_up_text);
 
@@ -123,6 +123,8 @@ public class Activity2 extends AppCompatActivity {
                 checkBox3.setVisibility(View.VISIBLE);
                 throwCounter++;
                 if(turnPlayer1 == true){
+                    scorePlayer1.setText("/");
+                    scorePlayer2.setText("/");
                     textViewThrowCounter.setText(throwCounter + "/3");
                     if(throwCounter <= 1){
                         endTurn.setVisibility(View.VISIBLE);
@@ -230,7 +232,7 @@ public class Activity2 extends AppCompatActivity {
                             }
                         break;
 
-                        case 6:
+                        case 60:
                             if(turnPlayer1 == true){
                                 player1RoundPoints = 666;
                             }else{
@@ -253,8 +255,16 @@ public class Activity2 extends AppCompatActivity {
                     results.setVisibility(View.VISIBLE);
                     if(turnPlayer1 == true){
                         results.setText(string_player1 + " wint het spel!");
+                        pop_up_text.setText(string_player1 + " wint het spel!");
+                        Frame.setVisibility(View.VISIBLE);
+                        rollDices.setVisibility(View.INVISIBLE);
+                        endTurn.setVisibility(View.INVISIBLE);
                     }else{
                         results.setText(string_player2 + " wint het spel!");
+                        pop_up_text.setText(string_player2 + " wint het spel!");
+                        Frame.setVisibility(View.VISIBLE);
+                        rollDices.setVisibility(View.INVISIBLE);
+                        endTurn.setVisibility(View.INVISIBLE);
                     }
                 }else{
                     if(turnPlayer1 == true){
@@ -299,15 +309,18 @@ public class Activity2 extends AppCompatActivity {
                         if(player1Pintjes <= 0){
                             pop_up_text.setText(winner + " wint het spel!");
                             Frame.setVisibility(View.VISIBLE);
-                            rollDices.setVisibility(View.INVISIBLE);
                         }else if(player2Pintjes <= 0){
                             pop_up_text.setText(winner + " wint het spel!");
                             Frame.setVisibility(View.VISIBLE);
-                            rollDices.setVisibility(View.INVISIBLE);
                         }
                     }
                     endTurn.setVisibility(View.INVISIBLE);
-                    rollDices.setVisibility(View.VISIBLE);
+
+                    if(player1Pintjes <= 0 || player2Pintjes <= 0){
+                        rollDices.setVisibility(View.INVISIBLE);
+                    }else{
+                        rollDices.setVisibility(View.VISIBLE);
+                    }
 
                     if(checkBox1.isChecked()) {
                         checkBox1.toggle();
@@ -356,6 +369,15 @@ public class Activity2 extends AppCompatActivity {
                     }
                 });
                 builder.show();
+            }
+        });
+
+        Button close_button = (Button) findViewById(R.id.close_button);
+        close_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Frame.setVisibility(View.INVISIBLE);
+                openMainActivity();
             }
         });
     }

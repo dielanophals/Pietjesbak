@@ -56,15 +56,15 @@ public class MainActivity extends AppCompatActivity {
         if(string_player1.isEmpty() && string_player2.isEmpty()){
             Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
-            Map<String, String> Usermap = new HashMap<>();
+            //Map<String, String> Usermap = new HashMap<>();
 
-            Usermap.put("name", string_player1);
+            //Usermap.put("name", string_player1);
 
-            mFirestore.collection("Users").add(Usermap);
+            //mFirestore.collection("Users").add(Usermap);
 
-            Usermap.put("name", string_player2);
+            //Usermap.put("name", string_player2);
 
-            mFirestore.collection("Users").add(Usermap);
+            //mFirestore.collection("Users").add(Usermap);
 
             Intent intent = new Intent(this, Activity2.class);
             intent.putExtra(EXTRA_TEXT1, string_player1);
