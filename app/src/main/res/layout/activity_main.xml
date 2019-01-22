@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/hout">
+    android:background="@drawable/preview-01">
 
     <TextView
         android:layout_width="match_parent"
