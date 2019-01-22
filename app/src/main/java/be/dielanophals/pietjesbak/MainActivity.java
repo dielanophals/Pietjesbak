@@ -1,12 +1,11 @@
 package be.dielanophals.pietjesbak;
 
 import android.content.Intent;
-<<<<<<< HEAD
+
 import android.os.Message;
-||||||| merged common ancestors
-=======
+
 import android.support.annotation.NonNull;
->>>>>>> master
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
-||||||| merged common ancestors
+
 import java.util.Random;
-=======
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
->>>>>>> master
+
 
 import java.util.Random;
 @IgnoreExtraProperties
@@ -95,13 +92,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
+
 
 }
 
-||||||| merged common ancestors
+
 }
 
-=======
 }
->>>>>>> master
+
