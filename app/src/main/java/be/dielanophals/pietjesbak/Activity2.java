@@ -10,6 +10,7 @@ package be.dielanophals.pietjesbak;
         import android.widget.Button;
         import android.widget.CheckBox;
         import android.widget.CompoundButton;
+        import android.widget.FrameLayout;
         import android.widget.ImageView;
         import android.widget.RelativeLayout;
         import android.widget.TextView;
@@ -35,6 +36,7 @@ public class Activity2 extends AppCompatActivity {
     Integer player2RoundPoints;
     String player1TotalPoints;
     String player2TotalPoints;
+    String Color;
     int player1Pintjes = 5;
     int player2Pintjes = 5;
     int minpintjes = 0;
@@ -47,12 +49,15 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+        /*getIntent() is used to pass data from an activity to another*/
         Intent intent = getIntent();
         final String string_player1 = intent.getStringExtra(MainActivity.EXTRA_TEXT1);
         final String string_player2 = intent.getStringExtra(MainActivity.EXTRA_TEXT2);
 
+        /*get the names from mainActivity and put them in a textView*/
         TextView textView1 = (TextView) findViewById(R.id.player1);
         TextView textView2 = (TextView) findViewById(R.id.player2);
+        final TextView colorSwitch = (TextView) findViewById(R.id.colorSwitch);
         final TextView visual_player = (TextView) findViewById(R.id.visual_player);
 
         textView1.setText(string_player1);
@@ -91,11 +96,17 @@ public class Activity2 extends AppCompatActivity {
         pintje4 = (ImageView) findViewById(R.id.pintje4);
         pintje5 = (ImageView) findViewById(R.id.pintje5);
 
+
+        final RelativeLayout Frame = (RelativeLayout) findViewById(R.id.pop_up);
+        final TextView pop_up_text = (TextView) findViewById(R.id.pop_up_text);
+
+        /*click on the button rollDices*/
         rollDices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkBox1.isChecked()) {
                     value1 = randomDiceValue();
+                    /*set your imageView to a the value that you've checked*/
                     int res1 = getResources().getIdentifier("dice" + value1, "drawable", getPackageName());
                     imageView1.setImageResource(res1);
                 }
@@ -111,13 +122,15 @@ public class Activity2 extends AppCompatActivity {
                 }
 
                 results.setVisibility(View.INVISIBLE);
-
                 endTurn.setVisibility(View.VISIBLE);
                 checkBox1.setVisibility(View.VISIBLE);
                 checkBox2.setVisibility(View.VISIBLE);
                 checkBox3.setVisibility(View.VISIBLE);
                 throwCounter++;
+
                 if(turnPlayer1 == true){
+                    scorePlayer1.setText("/");
+                    scorePlayer2.setText("/");
                     textViewThrowCounter.setText(throwCounter + "/3");
                     if(throwCounter <= 1){
                         endTurn.setVisibility(View.VISIBLE);
@@ -225,7 +238,7 @@ public class Activity2 extends AppCompatActivity {
                             }
                         break;
 
-                        case 6:
+                        case 60:
                             if(turnPlayer1 == true){
                                 player1RoundPoints = 666;
                             }else{
@@ -239,6 +252,8 @@ public class Activity2 extends AppCompatActivity {
                         player1RoundPoints = value1 + value2 + value3;
                     }else{
                         player2RoundPoints = value1 + value2 + value3;
+
+
                     }
                     minpintjes = 2;
                 }
@@ -248,8 +263,16 @@ public class Activity2 extends AppCompatActivity {
                     results.setVisibility(View.VISIBLE);
                     if(turnPlayer1 == true){
                         results.setText(string_player1 + " wint het spel!");
+                        pop_up_text.setText(string_player1 + " wint het spel!");
+                        Frame.setVisibility(View.VISIBLE);
+                        rollDices.setVisibility(View.INVISIBLE);
+                        endTurn.setVisibility(View.INVISIBLE);
                     }else{
                         results.setText(string_player2 + " wint het spel!");
+                        pop_up_text.setText(string_player2 + " wint het spel!");
+                        Frame.setVisibility(View.VISIBLE);
+                        rollDices.setVisibility(View.INVISIBLE);
+                        endTurn.setVisibility(View.INVISIBLE);
                     }
                 }else{
                     if(turnPlayer1 == true){
@@ -261,6 +284,7 @@ public class Activity2 extends AppCompatActivity {
                         player1TotalPoints = value1 + " " + value2 + " " + value3;
                         scorePlayer1.setText("" + player1TotalPoints);
                     }else{
+                        //Ronde gedaan
                         turnPlayer1 = true;
                         visual_player.setText(string_player1);
                         textViewThrowCounter.setText("0/3");
@@ -269,6 +293,7 @@ public class Activity2 extends AppCompatActivity {
 
                         player2TotalPoints = value1 + " " + value2 + " " + value3;
                         scorePlayer2.setText("" + player2TotalPoints);
+
 
                         results.setVisibility(View.VISIBLE);
                         String winner;
@@ -290,14 +315,22 @@ public class Activity2 extends AppCompatActivity {
                         System.out.println(minpintjes);
                         results.setText(winner + " wint deze ronde!");
                         totalPintjes();
+                        rollDices.setVisibility(View.INVISIBLE);
                         if(player1Pintjes <= 0){
-                            results.setText(winner + " wint het spel!");
+                            pop_up_text.setText(winner + " wint het spel!");
+                            Frame.setVisibility(View.VISIBLE);
                         }else if(player2Pintjes <= 0){
-                            results.setText(winner + " wint het spel!");
+                            pop_up_text.setText(winner + " wint het spel!");
+                            Frame.setVisibility(View.VISIBLE);
                         }
                     }
                     endTurn.setVisibility(View.INVISIBLE);
-                    rollDices.setVisibility(View.VISIBLE);
+
+                    if(player1Pintjes <= 0 || player2Pintjes <= 0){
+                        rollDices.setVisibility(View.INVISIBLE);
+                    }else{
+                        rollDices.setVisibility(View.VISIBLE);
+                    }
 
                     if(checkBox1.isChecked()) {
                         checkBox1.toggle();
@@ -346,6 +379,15 @@ public class Activity2 extends AppCompatActivity {
                     }
                 });
                 builder.show();
+            }
+        });
+
+        Button close_button = (Button) findViewById(R.id.close_button);
+        close_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Frame.setVisibility(View.INVISIBLE);
+                openMainActivity();
             }
         });
     }
