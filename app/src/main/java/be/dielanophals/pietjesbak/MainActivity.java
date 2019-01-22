@@ -1,7 +1,11 @@
 package be.dielanophals.pietjesbak;
 
 import android.content.Intent;
+
+import android.os.Message;
+
 import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.Random;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -22,9 +31,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+
+import java.util.Random;
+@IgnoreExtraProperties
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_TEXT1 = "be.example.application.pietjesbak.EXTRA_TEXT1";
     public static final String EXTRA_TEXT2 = "be.example.application.pietjesbak.EXTRA_TEXT2";
+    private EditText edittekst1;
+    private EditText edittekst2;
+    private Button button;
 
     private FirebaseFirestore mFirestore;
 
@@ -36,13 +51,18 @@ public class MainActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
 
         Button button = (Button) findViewById(R.id.start_game);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity2();
+
+
             }
         });
     }
+
 
     public void openActivity2(){
         EditText player1 = (EditText) findViewById(R.id.edittext1);
@@ -51,9 +71,8 @@ public class MainActivity extends AppCompatActivity {
         EditText player2 = (EditText) findViewById(R.id.edittext2);
         String string_player2 = player2.getText().toString();
 
-        TextView name_check = (TextView) findViewById(R.id.name_check);
 
-        if(string_player1.isEmpty() && string_player2.isEmpty()){
+        if(string_player1.isEmpty() || string_player2.isEmpty()){
             Toast.makeText(getApplicationContext(),"Gelieve alles in te vullen!", Toast.LENGTH_SHORT).show();
         }else{
             Map<String, String> Usermap = new HashMap<>();
@@ -73,4 +92,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
 }
+
+
