@@ -3,7 +3,6 @@ package be.dielanophals.pietjesbak;
         import android.content.DialogInterface;
         import android.content.Intent;
         import android.graphics.Bitmap;
-        import android.graphics.Typeface;
         import android.graphics.drawable.Drawable;
         import android.support.constraint.ConstraintLayout;
         import android.support.v7.app.AlertDialog;
@@ -103,12 +102,8 @@ public class Activity2 extends AppCompatActivity {
         /*get the names from mainActivity and put them in a textView*/
         TextView textView1 = (TextView) findViewById(R.id.player1);
         TextView textView2 = (TextView) findViewById(R.id.player2);
-
+        final TextView colorSwitch = (TextView) findViewById(R.id.colorSwitch);
         final TextView visual_player = (TextView) findViewById(R.id.visual_player);
-
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/DK Cool Crayon.ttf");
-        textView1.setTypeface(myCustomFont);
-        textView2.setTypeface(myCustomFont);
 
         textView1.setText(string_player1);
         textView2.setText(string_player2);
@@ -138,12 +133,8 @@ public class Activity2 extends AppCompatActivity {
         final TextView roundsWinPlayer1 = (TextView) findViewById(R.id.rounds_win_player1);
         final TextView roundsWinPlayer2 = (TextView) findViewById(R.id.rounds_win_player2);
 
-        scorePlayer1.setTypeface(myCustomFont);
-        scorePlayer2.setTypeface(myCustomFont);
-        roundsWinPlayer1.setTypeface(myCustomFont);
-        roundsWinPlayer2.setTypeface(myCustomFont);
-
         final TextView results = (TextView) findViewById(R.id.results);
+
         pintje1 = (ImageView) findViewById(R.id.pintje1);
         pintje2 = (ImageView) findViewById(R.id.pintje2);
         pintje3 = (ImageView) findViewById(R.id.pintje3);
