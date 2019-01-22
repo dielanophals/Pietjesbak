@@ -102,7 +102,6 @@ public class Activity2 extends AppCompatActivity {
         /*get the names from mainActivity and put them in a textView*/
         TextView textView1 = (TextView) findViewById(R.id.player1);
         TextView textView2 = (TextView) findViewById(R.id.player2);
-        final TextView colorSwitch = (TextView) findViewById(R.id.colorSwitch);
         final TextView visual_player = (TextView) findViewById(R.id.visual_player);
 
         textView1.setText(string_player1);
