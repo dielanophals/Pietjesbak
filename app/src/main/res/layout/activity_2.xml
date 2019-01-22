@@ -323,13 +323,13 @@
         android:id="@+id/pop_up"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:background="#FF9900"
-        android:visibility="invisible"
+        android:background="#050403"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -342,6 +342,13 @@
             android:textColor="#ffff"
             android:textSize="20sp"
             />
+        <ImageView
+
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/win"
+
+            />
 
         <TextView
             android:id="@+id/pop_up_text"
@@ -349,9 +356,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="112dp"
+            android:layout_marginTop="402dp"
             android:gravity="center"
             android:text="Winnaar"
+            android:textSize="80sp"
+            android:textColor="F2D176"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
     </RelativeLayout>
